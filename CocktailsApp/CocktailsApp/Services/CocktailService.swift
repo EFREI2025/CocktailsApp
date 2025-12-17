@@ -31,7 +31,7 @@ class CocktailService {
         do {
             let decoded = try JSONDecoder().decode(ProductListResponse.self, from: data)
             print(decoded)
-            return decoded.records
+            return decoded.drinks
         } catch {
             throw CocktailError.decodingError
         }
