@@ -1,15 +1,27 @@
-
 //
 //  CocktailService.swift
-//  CocktailSwift
+//  CocktailsApp
 //
 //  Created by Georgy GUEI on 12/17/25.
 //
 
+import Foundation
+
+enum CocktailError: Error {
+    case invalidURL
+    case invalidResponse
+    case decodingError
+}
+
+public struct Config {
+    // TheCocktailDB provides a public test key "1". Replace with your own if needed.
+    public static let CocktailToken: String = "1"
+}
+
 class CocktailService {
     private let apiKey = Config.CocktailToken
 
-    func fetchProducts() async throws -> [Drink] {
+    func fetchProducts() async throws -> [Drink]? {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/\(apiKey)/search.php?f=a"
 
         guard let url = URL(string: urlString) else {
@@ -29,7 +41,7 @@ class CocktailService {
         }
 
         do {
-            let decoded = try JSONDecoder().decode(ProductListResponse.self, from: data)
+            let decoded = try JSONDecoder().decode(DrinkResponse.self, from: data)
             print(decoded)
             return decoded.drinks
         } catch {
