@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  CocktailSwift
+//  CocktailsApp
 //
-//  Created by Georgy GUEI on 12/17/25.
+//  Created by imac13 on 17/12/2025.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world! Too")
+            Text("Hello, world!")
         }
         .padding()
     }

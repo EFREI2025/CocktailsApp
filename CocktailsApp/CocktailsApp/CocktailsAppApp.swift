@@ -1,14 +1,14 @@
 //
-//  CocktailSwiftApp.swift
-//  CocktailSwift
+//  CocktailsAppApp.swift
+//  CocktailsApp
 //
-//  Created by Georgy GUEI on 12/17/25.
+//  Created by imac13 on 17/12/2025.
 //
 
 import SwiftUI
 
 @main
-struct CocktailSwiftApp: App {
+struct CocktailsAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
