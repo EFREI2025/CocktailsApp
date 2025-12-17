@@ -21,7 +21,7 @@ public struct Config {
 class CocktailService {
     private let apiKey = Config.CocktailToken
 
-    func fetchProducts() async throws -> [Drink]? {
+    func fetchDrinks() async throws -> [Drink]? {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/\(apiKey)/search.php?f=a"
 
         guard let url = URL(string: urlString) else {
