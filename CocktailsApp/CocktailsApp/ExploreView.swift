@@ -3,6 +3,9 @@ import SwiftUI
 struct ExploreView: View {
     @StateObject var viewModel = ExploreViewModel()
 
+    // UI state pour afficher la sheet
+    @State private var showFilters = false
+
     var body: some View {
         NavigationStack {
             Group {
@@ -25,23 +28,83 @@ struct ExploreView: View {
                 }
             }
             .navigationTitle("Explore")
+
+            // 🔍 Recherche
             .searchable(text: $viewModel.searchText, prompt: "Rechercher un cocktail")
 
-            // ✅ Routeur unique pour tous les NavigationLink(value: Drink)
+            // 👉 Destination unique pour les cocktails
             .navigationDestination(for: Drink.self) { drink in
                 DrinkDetailView(drink: drink)
             }
 
+            // ⭐ + 🧰
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
-                        FavoritesView() // ✅ pas de NavigationStack dedans
+                        FavoritesView()
                     } label: {
                         Image(systemName: "star")
                     }
                 }
+
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showFilters = true
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                    }
+                    .accessibilityLabel("Filtres")
+                }
             }
 
+            // 🧾 Sheet filtres
+            .sheet(isPresented: $showFilters) {
+                NavigationStack {
+                    Form {
+                        Section("Type") {
+                            Picker("Alcohol", selection: $viewModel.alcoholFilter) {
+                                Text("Tous").tag(AlcoholFilter.all)
+                                Text("Alcoholic").tag(AlcoholFilter.alcoholic)
+                                Text("Non alcoholic").tag(AlcoholFilter.nonAlcoholic)
+                            }
+                            .pickerStyle(.segmented)
+                        }
+
+                        Section("Catégorie") {
+                            Picker("Catégorie", selection: $viewModel.categoryFilter) {
+                                Text("Toutes").tag("ALL")
+                                ForEach(viewModel.availableCategories, id: \.self) { cat in
+                                    Text(cat).tag(cat)
+                                }
+                            }
+                        }
+                        
+                        Section("Verre") {
+                            Picker("Type de verre", selection:$viewModel.glassFilter) {
+                                Text("ALL").tag("ALL")
+                                ForEach(viewModel.availableGlasses, id: \.self) { glass in
+                                    Text(glass).tag(glass)}
+                            }
+                        }
+
+                        Section {
+                            Button(role: .destructive) {
+                                viewModel.resetFilters()
+                            } label: {
+                                Text("Réinitialiser les filtres")
+                            }
+                        }
+                    }
+                    .navigationTitle("Filtres")
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button("OK") { showFilters = false }
+                        }
+                    }
+                }
+            }
+
+            // 🌐 Chargement
             .task {
                 await viewModel.loadDrinks()
             }

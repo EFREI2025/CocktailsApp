@@ -6,10 +6,8 @@ struct CocktailsAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                ExploreView()
-            }
-            .environmentObject(favoritesStore)
+            ExploreView()
+                .environmentObject(favoritesStore)
         }
     }
 }
