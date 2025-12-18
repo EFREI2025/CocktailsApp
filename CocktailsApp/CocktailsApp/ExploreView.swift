@@ -26,9 +26,22 @@ struct ExploreView: View {
             }
             .navigationTitle("Explore")
             .searchable(text: $viewModel.searchText, prompt: "Rechercher un cocktail")
+
+            // ✅ Routeur unique pour tous les NavigationLink(value: Drink)
             .navigationDestination(for: Drink.self) { drink in
                 DrinkDetailView(drink: drink)
             }
+
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        FavoritesView() // ✅ pas de NavigationStack dedans
+                    } label: {
+                        Image(systemName: "star")
+                    }
+                }
+            }
+
             .task {
                 await viewModel.loadDrinks()
             }
@@ -38,4 +51,5 @@ struct ExploreView: View {
 
 #Preview {
     ExploreView()
+        .environmentObject(FavoritesStore())
 }

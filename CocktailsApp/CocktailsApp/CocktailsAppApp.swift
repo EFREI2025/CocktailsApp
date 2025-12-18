@@ -1,17 +1,15 @@
-//
-//  CocktailsAppApp.swift
-//  CocktailsApp
-//
-//  Created by imac13 on 17/12/2025.
-//
-
 import SwiftUI
 
 @main
 struct CocktailsAppApp: App {
+    @StateObject private var favoritesStore = FavoritesStore()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                ExploreView()
+            }
+            .environmentObject(favoritesStore)
         }
     }
 }

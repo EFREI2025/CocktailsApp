@@ -13,7 +13,7 @@ struct DrinkResponse: Codable {
 }
 
 // MARK: - Drink (CocktailDB full model)
-struct Drink: Codable, Identifiable, Hashable {
+struct Drink: Codable, Identifiable {
     // Identifiable
     var id: String { idDrink }
 
@@ -144,6 +144,17 @@ struct Drink: Codable, Identifiable, Hashable {
     }
 }
 
+// ✅ IMPORTANT: Hashable/Equatable UNIQUEMENT basé sur idDrink (évite le “pop” auto)
+extension Drink: Hashable {
+    static func == (lhs: Drink, rhs: Drink) -> Bool {
+        lhs.idDrink == rhs.idDrink
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(idDrink)
+    }
+}
+
 // MARK: - Ingredient helper
 struct IngredientLine: Hashable {
     let name: String
@@ -169,8 +180,7 @@ extension Drink {
                 guard let ing = ing?.trimmingCharacters(in: .whitespacesAndNewlines),
                       !ing.isEmpty else { return nil }
 
-                let cleanedMeasure = meas?
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
+                let cleanedMeasure = meas?.trimmingCharacters(in: .whitespacesAndNewlines)
 
                 return IngredientLine(
                     name: ing,
