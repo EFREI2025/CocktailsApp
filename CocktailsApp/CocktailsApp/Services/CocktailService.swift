@@ -22,30 +22,41 @@ class CocktailService {
     private let apiKey = Config.CocktailToken
 
     func fetchDrinks() async throws -> [Drink] {
-        let urlString = "https://www.thecocktaildb.com/api/json/v1/\(apiKey)/search.php?f=a"
-
-        guard let url = URL(string: urlString) else {
-            throw CocktailError.invalidURL
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        let letters = "abcdefghijklmnopqrstuvwxyz"
+        var allDrinks: [Drink] = []
         
-        // Appel réseau async/await
-        let (data, response) = try await URLSession.shared.data(for: request)
-
-        // Vérification de la réponse HTTP
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-            throw CocktailError.invalidResponse
+        // Fetch drinks for each letter
+        for letter in letters {
+            let urlString = "https://www.thecocktaildb.com/api/json/v1/\(apiKey)/search.php?f=\(letter)"
+            
+            guard let url = URL(string: urlString) else {
+                throw CocktailError.invalidURL
+            }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            
+            // Appel réseau async/await
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            // Vérification de la réponse HTTP
+            guard let httpResponse = response as? HTTPURLResponse,
+                  httpResponse.statusCode == 200 else {
+                throw CocktailError.invalidResponse
+            }
+            
+            do {
+                let decoded = try JSONDecoder().decode(DrinkResponse.self, from: data)
+                // Some API responses may omit the drinks array for a given letter. If your model defines `drinks` as optional, use `?? []`.
+                // If it's non-optional, this still compiles and simply appends the array.
+                allDrinks.append(contentsOf: decoded.drinks ?? [])
+            } catch {
+                throw CocktailError.decodingError
+            }
         }
-
-        do {
-            let decoded = try JSONDecoder().decode(DrinkResponse.self, from: data)
-            print(decoded)
-            return decoded.drinks
-        } catch {
-            throw CocktailError.decodingError
-        }
+        
+        print("Fetched \(allDrinks.count) total drinks from A to Z")
+        return allDrinks
     }
 }
+

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - API Wrapper
 struct DrinkResponse: Codable {
-    let drinks: [Drink]
+    let drinks: [Drink]?
 }
 
 // MARK: - Drink (CocktailDB full model)
