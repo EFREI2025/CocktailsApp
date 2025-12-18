@@ -157,7 +157,7 @@ struct DrinkDetailView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(isFavorite ? Color.gray : Color.red)
+                        .background(isFavorite ? Color.red : Color.blue)
                         .cornerRadius(14)
                     }
                 }
