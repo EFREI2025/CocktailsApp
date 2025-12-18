@@ -17,6 +17,8 @@
 		03D798422EF2F2C200BB8D6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D798412EF2F2C200BB8D6C /* Preview Assets.xcassets */; };
 		42DD85662EF30C3D00F25DC3 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85652EF30C3600F25DC3 /* Cocktail.swift */; };
 		42DD856B2EF30C7000F25DC3 /* CocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD856A2EF30C6B00F25DC3 /* CocktailService.swift */; };
+		42DD85732EF4509300F25DC3 /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85722EF4509300F25DC3 /* FeedbackService.swift */; };
+		42DD85752EF450E200F25DC3 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85742EF450E200F25DC3 /* FeedbackViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		03D798412EF2F2C200BB8D6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42DD85652EF30C3600F25DC3 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
 		42DD856A2EF30C6B00F25DC3 /* CocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailService.swift; sourceTree = "<group>"; };
+		42DD85722EF4509300F25DC3 /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
+		42DD85742EF450E200F25DC3 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 				03D7983C2EF2F2C000BB8D6C /* ContentView.swift */,
 				42DD85642EF30C2B00F25DC3 /* Models */,
 				03D7983E2EF2F2C200BB8D6C /* Assets.xcassets */,
+				42DD85772EF4517800F25DC3 /* ViewModels */,
 				03D798402EF2F2C200BB8D6C /* Preview Content */,
 				032E20962EF43F1B009DEE42 /* ExploreView.swift */,
 				032E20982EF43F75009DEE42 /* DrinkDetailView.swift */,
@@ -96,9 +101,18 @@
 		42DD85672EF30C5000F25DC3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				42DD85722EF4509300F25DC3 /* FeedbackService.swift */,
 				42DD856A2EF30C6B00F25DC3 /* CocktailService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		42DD85772EF4517800F25DC3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				42DD85742EF450E200F25DC3 /* FeedbackViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +187,8 @@
 			files = (
 				032E209D2EF43FC6009DEE42 /* ExploreViewModel.swift in Sources */,
 				03D7983D2EF2F2C000BB8D6C /* ContentView.swift in Sources */,
+				42DD85732EF4509300F25DC3 /* FeedbackService.swift in Sources */,
+				42DD85752EF450E200F25DC3 /* FeedbackViewModel.swift in Sources */,
 				032E20972EF43F1B009DEE42 /* ExploreView.swift in Sources */,
 				032E20992EF43F75009DEE42 /* DrinkDetailView.swift in Sources */,
 				032E209B2EF43F96009DEE42 /* DrinkRowView.swift in Sources */,
