@@ -1,8 +1,15 @@
+//
+//  Cocktail.swift
+//  CocktailsApp
+//
+//  Created by Georgy GUEI on 12/17/25.
+//
+
 import Foundation
 
 // MARK: - API Wrapper
 struct DrinkResponse: Codable {
-    let drinks: [Drink]
+    let drinks: [Drink]?
 }
 
 // MARK: - Drink (CocktailDB full model)

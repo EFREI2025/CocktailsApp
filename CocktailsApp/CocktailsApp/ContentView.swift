@@ -14,8 +14,18 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+                .padding()
+                .task {
+                    do {
+                        let service = CocktailService()
+                        let drinks = try await service.fetchDrinks()
+                        print("✅ Nombre de cocktails :", drinks.count)
+                        print("🍸 Premier cocktail :", drinks.first?.strDrink ?? "aucun")
+                    } catch {
+                        print("❌ Erreur :", error)
+                    }
+                }
         }
-        .padding()
     }
 }
 
