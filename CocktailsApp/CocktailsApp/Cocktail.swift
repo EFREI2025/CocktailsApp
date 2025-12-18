@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: - API Wrapper
 struct DrinkResponse: Codable {
-    let drinks: [Drink]?
+    let drinks: [Drink]
 }
 
 // MARK: - Drink (CocktailDB full model)
@@ -134,5 +134,41 @@ struct Drink: Codable, Identifiable, Hashable {
         case strImageAttribution
         case strCreativeCommonsConfirmed
         case dateModified
+    }
+}
+
+// MARK: - Ingredient helper
+struct IngredientLine: Hashable {
+    let name: String
+    let measure: String?
+}
+
+extension Drink {
+    var ingredientLines: [IngredientLine] {
+        let ingredients: [String?] = [
+            strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5,
+            strIngredient6, strIngredient7, strIngredient8, strIngredient9, strIngredient10,
+            strIngredient11, strIngredient12, strIngredient13, strIngredient14, strIngredient15
+        ]
+
+        let measures: [String?] = [
+            strMeasure1, strMeasure2, strMeasure3, strMeasure4, strMeasure5,
+            strMeasure6, strMeasure7, strMeasure8, strMeasure9, strMeasure10,
+            strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15
+        ]
+
+        return zip(ingredients, measures)
+            .compactMap { ing, meas in
+                guard let ing = ing?.trimmingCharacters(in: .whitespacesAndNewlines),
+                      !ing.isEmpty else { return nil }
+
+                let cleanedMeasure = meas?
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+
+                return IngredientLine(
+                    name: ing,
+                    measure: (cleanedMeasure?.isEmpty == false) ? cleanedMeasure : nil
+                )
+            }
     }
 }
