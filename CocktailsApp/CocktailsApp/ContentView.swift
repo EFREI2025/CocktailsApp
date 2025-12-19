@@ -8,105 +8,67 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var testResult = "Tap button to test API"
-    @State private var isLoading = false
-    @State private var drinks: [Cocktail] = []
-    @State private var users: [User] = []
+    @EnvironmentObject var authManager: AuthManager
+    @State private var showLoginSheet = false
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("API Connection Test")
-                .font(.title)
-                .bold()
-            
-            if isLoading {
-                ProgressView()
-                    .padding()
-            }
-            
-            Text(testResult)
-                .multilineTextAlignment(.center)
-                .padding()
-                .foregroundColor(testResult.contains("✅") ? .green : testResult.contains("❌") ? .red : .primary)
-            
-            Button("Test Drinks Endpoint") {
-                Task { @MainActor in
-                    await testDrinksEndpoint()
-                }
-            }
-            .buttonStyle(.borderedProminent)
-            
-            Button("Test Users Endpoint") {
-                Task { @MainActor in
-                    await testUsersEndpoint()
-                }
-            }
-            .buttonStyle(.bordered)
-            
-            if !drinks.isEmpty {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Drinks Found:")
-                        .font(.headline)
-                    ForEach(drinks) { drink in
-                        Text("• \(drink.title) (\(drink.category))")
-                            .font(.caption)
+        NavigationView {
+            VStack(spacing: 30) {
+                // User Status
+                VStack(spacing: 15) {
+                    Image(systemName: authManager.isAuthenticated ? "person.circle.fill" : "person.circle")
+                        .font(.system(size: 80))
+                        .foregroundColor(authManager.isAuthenticated ? .green : .gray)
+                    
+                    if authManager.isAuthenticated, let user = authManager.currentUser {
+                        Text("Logged in as:")
+                            .font(.headline)
+                        Text(user.email)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        
+                        if let name = user.name {
+                            Text(name)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                        }
+                    } else {
+                        Text("Not logged in")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
                     }
                 }
                 .padding()
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(8)
-            }
-            
-            if !users.isEmpty {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Users Found:")
-                        .font(.headline)
-                    ForEach(users) { user in
-                        Text("• \(user.email)")
-                            .font(.caption)
+                
+                // Action Buttons
+                VStack(spacing: 15) {
+                    if authManager.isAuthenticated {
+                        Button("Logout") {
+                            authManager.logout()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.red)
+                    } else {
+                        Button("Login / Sign Up") {
+                            showLoginSheet = true
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
                 }
-                .padding()
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(8)
+                
+                Spacer()
             }
-            
-            Spacer()
+            .navigationTitle("CocktailsApp")
+            .sheet(isPresented: $showLoginSheet) {
+                LoginView()
+            }
         }
-        .padding()
     }
-    
-    func testDrinksEndpoint() async {
-        isLoading = true
-        testResult = "Testing drinks endpoint..."
-        
-        do {
-            let fetchedDrinks = try await CocktailAPIService.shared.fetchCocktails()
-            drinks = fetchedDrinks
-            testResult = "✅ Success! Found \(fetchedDrinks.count) drinks"
-        } catch {
-            drinks = []
-            testResult = "❌ Error: \(error.localizedDescription)"
-        }
-        
-        isLoading = false
-    }
-    
-    func testUsersEndpoint() async {
-        isLoading = true
-        testResult = "Testing users endpoint..."
-        
-        do {
-            let fetchedUsers = try await CocktailAPIService.shared.fetchUsers()
-            users = fetchedUsers
-            testResult = "✅ Success! Found \(fetchedUsers.count) users"
-        } catch {
-            users = []
-            testResult = "❌ Error: \(error.localizedDescription)"
-        }
-        
-        isLoading = false
-    }
+}
+
+#Preview {
+    ContentView()
+        .environmentObject(AuthManager.shared)
 }
 
 #Preview {

@@ -1,0 +1,126 @@
+{
+  "users": [
+    {
+      "id": "d063",
+      "email": "toto@email.com",
+      "password": "Password1",
+      "createdAt": 1760835884667,
+      "updatedAt": 1763342785798,
+      "bookmarks": [
+        "50",
+        "1"
+      ]
+    },
+    {
+      "id": "d243",
+      "email": "alex@email.com",
+      "password": "Password1",
+      "createdAt": 1760836959848,
+      "updatedAt": 1760836959848
+    },
+    {
+      "id": "9d8d",
+      "email": "john@email.com",
+      "password": "Password123",
+      "createdAt": 1763313212859,
+      "updatedAt": 1763313212859
+    },
+    {
+      "id": "916a",
+      "email": "toto@test.com",
+      "password": "Password12",
+      "createdAt": 1763313719539,
+      "updatedAt": 1763327988236,
+      "name": "toto",
+      "dateOfBirth": "2025-11-13",
+      "phone": "00 11 22 33 44",
+      "gender": "male",
+      "bookmarks": []
+    }
+  ],
+  "bookmarks": [
+    {
+      "id": "bm1",
+      "userId": "d063",
+      "drinkId": "dg5e",
+      "createdAt": 1734600000000
+    },
+    {
+      "id": "bm2",
+      "userId": "d063",
+      "drinkId": "dg5e",
+      "createdAt": 1734610000000
+    }
+  ],
+  "reviews": [
+    {
+      "id": "fz3g",
+      "drinkId": "dg5e",
+      "authorId": "d063",
+      "rating": 5,
+      "comment": "Absolutely love the Bijou cocktail! The blend of gin, green Chartreuse, and sweet vermouth creates a perfect balance of flavors. The hint of orange bitters adds a delightful touch. Highly recommend trying this classic drink!",
+      "createdAt": 1734500000000
+    },
+    {
+      "id": "g5h7",
+      "drinkId": "dg5e",
+      "authorId": "d243",
+      "rating": 4,
+      "comment": "The Bijou is a fantastic cocktail with a rich history. I enjoyed the herbal notes from the green Chartreuse, and the sweetness from the vermouth complemented it well. The orange bitters really elevated the drink. A must-try for cocktail enthusiasts!",
+      "createdAt": 1734586400000
+    }
+  ],
+  "drinks": [
+    {
+      "id": "dg5e",
+      "title": "Bijou",
+      "description": "The Bijou is a classic cocktail that dates back to the late 19th century. Its name, meaning 'jewel' in French, reflects the drink's vibrant colors and luxurious ingredients. The cocktail is a harmonious blend of gin, green Chartreuse, and sweet vermouth, accented with a dash of orange bitters. Traditionally served in a cocktail glass, the Bijou is garnished with a lemon twist or cherry, adding a touch of elegance to its presentation. This sophisticated drink is perfect for those who appreciate complex flavors and a touch of history in their cocktails.",
+      "category": "Cocktail",
+      "type": "Alcoholic",
+      "glass": "Cocktail glass",
+      "instructions": "Stir in mixing glass with ice and strain\r\n",
+      "ingredients": [
+      "1 dash Orange Bitters",
+      "1 oz Green Chartreuse",
+      "1 oz Gin",
+      "1 oz Sweet Vermouth"
+      ],
+      "imageSource": "https://www.thecocktaildb.com/images/media/drink/rysb3r1513706985.jpg",
+      "imageAlt": "A vibrant Bijou cocktail served in a classic cocktail glass, garnished with a lemon twist.",
+      "tags": ["classic", "sophisticated", "herbal", "vintage"],
+      "difficulty": "medium",
+      "prepTime": "5 minutes",
+      "servings": 1,
+      "alcoholContent": "high",
+      "createdAt": 1720000000000,
+      "updatedAt": 1720000000000
+    },
+    {
+      "id": "are4",
+      "title": "Zombie",
+      "description": "The Zombie is a classic tiki cocktail known for its potent mix of rums and tropical flavors. Created in the 1930s, this drink combines light rum, gold rum, and 151-proof rum with a blend of fruit juices and sweeteners, resulting in a complex and flavorful beverage. The addition of Pernod adds a unique anise flavor, while grenadine provides a touch of sweetness and color. Traditionally served in a hurricane glass, the Zombie is garnished with fruit and often enjoyed during festive occasions. Due to its high alcohol content, it's recommended to consume this cocktail responsibly.",
+      "category": "Cocktail",
+      "type": "Alcoholic",
+      "glass": "Hurricane glass",
+      "instructions": "Blend at high speed for no more than 5 seconds.\n\nPour into a glass, add ice cubes to fill, then add the garnish.\n\n*Donn’s mix: Bring 3 crushed cinnamon sticks, 1 cup of sugar and 1 cup of water to a boil, stirring until the sugar is dissolved.\n\nSimmer for 2 minutes, then remove from the heat and let sit for at least 2 hours before straining into a clean glass bottle.\n\nThen add 1 part of the syrup and 2 parts of fresh grapefruit juice together.",
+      "ingredients": [
+      "1 1/2 oz Rum",
+      "1 1/2 oz Gold rum",
+      "1 oz 151 proof rum",
+      "1 tsp Pernod",
+      "1 tsp Grenadine",
+      "1 tsp Lime Juice",
+      "1 drop Angostura Bitters"
+      ],
+      "imageSource": "https://www.thecocktaildb.com/images/media/drink/2en3jk1509557725.jpg",
+      "imageAlt": "A colorful Zombie cocktail served in a hurricane glass, garnished with tropical fruit and a cherry.",
+      "tags": ["tiki", "tropical", "fruity", "party", "strong"],
+      "difficulty": "hard",
+      "prepTime": "10 minutes",
+      "servings": 1,
+      "alcoholContent": "very high",
+      "createdAt": 1720086400000,
+      "updatedAt": 1720086400000
+    }
+  ]
+}

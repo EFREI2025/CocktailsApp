@@ -20,6 +20,7 @@
 		42DD85B12EF4CE8C00F25DC3 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85AA2EF4CE8C00F25DC3 /* ReviewViewModel.swift */; };
 		42DD85B22EF4CE8C00F25DC3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85A92EF4CE8C00F25DC3 /* LoginViewModel.swift */; };
 		42DD85DA2EF4D54400F25DC3 /* CocktailsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85D82EF4D54400F25DC3 /* CocktailsApp.swift */; };
+		42DD85DE2EF4D74300F25DC3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85DD2EF4D74300F25DC3 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		42DD85AA2EF4CE8C00F25DC3 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		42DD85AB2EF4CE8C00F25DC3 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		42DD85D82EF4D54400F25DC3 /* CocktailsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsApp.swift; sourceTree = "<group>"; };
+		42DD85DD2EF4D74300F25DC3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				42DD85672EF30C5000F25DC3 /* Services */,
 				42DD85D82EF4D54400F25DC3 /* CocktailsApp.swift */,
 				03D7983C2EF2F2C000BB8D6C /* ContentView.swift */,
+				42DD85DC2EF4D71500F25DC3 /* Views */,
 				42DD85642EF30C2B00F25DC3 /* Models */,
 				03D7983E2EF2F2C200BB8D6C /* Assets.xcassets */,
 				42DD85772EF4517800F25DC3 /* ViewModels */,
@@ -116,6 +119,14 @@
 				42DD85AB2EF4CE8C00F25DC3 /* UserProfileViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		42DD85DC2EF4D71500F25DC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42DD85DD2EF4D74300F25DC3 /* LoginView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +205,7 @@
 				42DD85A42EF4CE7800F25DC3 /* Cocktail.swift in Sources */,
 				42DD85AC2EF4CE8C00F25DC3 /* CocktailListViewModel.swift in Sources */,
 				42DD85AD2EF4CE8C00F25DC3 /* UserProfileViewModel.swift in Sources */,
+				42DD85DE2EF4D74300F25DC3 /* LoginView.swift in Sources */,
 				42DD85AE2EF4CE8C00F25DC3 /* BookmarksViewModel.swift in Sources */,
 				42DD85B02EF4CE8C00F25DC3 /* CocktailDetailViewModel.swift in Sources */,
 				42DD85B12EF4CE8C00F25DC3 /* ReviewViewModel.swift in Sources */,

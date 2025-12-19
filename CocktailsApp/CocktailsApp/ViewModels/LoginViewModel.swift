@@ -65,7 +65,8 @@ class LoginViewModel: ObservableObject {
                 isLoading = false
                 return true
             } catch {
-                errorMessage = error.localizedDescription
+                errorMessage = "Registration failed: \(error.localizedDescription)"
+                // errorMessage = error.localizedDescription
                 isLoading = false
                 return false
             }
