@@ -11,12 +11,13 @@ struct ProfileView: View {
     @StateObject private var viewModel = UserProfileViewModel()
     @EnvironmentObject var authManager: AuthManager
     @State private var showLoginSheet = false
+    @State private var showChangePassword = false
     
     var body: some View {
         NavigationView {
             ZStack {
                 // Background
-                Color(UIColor.systemGroupedBackground)
+                Color(UIColor.systemBackground)
                     .ignoresSafeArea()
                 
                 if !authManager.isAuthenticated {
@@ -100,7 +101,7 @@ struct ProfileView: View {
                                             .foregroundColor(.secondary)
                                         Spacer()
                                         Button("Change password") {
-                                            // TODO: Implement password change
+                                            showChangePassword = true
                                         }
                                         .font(.system(size: 15))
                                         .foregroundColor(.accentColor)
@@ -197,6 +198,9 @@ struct ProfileView: View {
             }
             .sheet(isPresented: $showLoginSheet) {
                 LoginView()
+            }
+            .sheet(isPresented: $showChangePassword) {
+                ChangePasswordView()
             }
         }
         .task {
