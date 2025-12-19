@@ -725,24 +725,6 @@ struct RatingView: View {
                                 .foregroundColor(.red)
                                 .padding()
                         }
-                        
-                        // Submit Button
-                        Button(action: submitReview) {
-                            if isSubmitting {
-                                ProgressView()
-                                    .tint(.white)
-                            } else {
-                                Text("Submit Review")
-                                    .font(.system(size: 16, weight: .semibold))
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(rating > 0 ? Color.accentColor : Color.gray.opacity(0.3))
-                        .cornerRadius(12)
-                        .padding(.horizontal)
-                        .disabled(rating == 0 || isSubmitting)
                     }
                     .padding(.bottom, 40)
                 }
@@ -759,30 +741,6 @@ struct RatingView: View {
         }
         .onAppear {
             rating = currentRating ?? 0
-        }
-    }
-    
-    private func submitReview() {
-        guard let userId = authManager.currentUser?.id else { return }
-        
-        isSubmitting = true
-        errorMessage = nil
-        
-        Task {
-            do {
-                try await CocktailAPIService.shared.submitReview(
-                    drinkId: cocktail.id,
-                    authorId: userId,
-                    rating: rating,
-                    comment: comment
-                )
-                
-                onRatingSubmitted(rating)
-                dismiss()
-            } catch {
-                errorMessage = "Failed to submit review: \(error.localizedDescription)"
-                isSubmitting = false
-            }
         }
     }
 }
