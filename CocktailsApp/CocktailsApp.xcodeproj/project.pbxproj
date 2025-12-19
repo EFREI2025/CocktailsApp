@@ -23,6 +23,8 @@
 		42DD85DE2EF4D74300F25DC3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85DD2EF4D74300F25DC3 /* LoginView.swift */; };
 		42DD85E02EF4E58900F25DC3 /* CocktailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85DF2EF4E58900F25DC3 /* CocktailListView.swift */; };
 		42DD85E22EF4ED8500F25DC3 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85E12EF4ED8500F25DC3 /* BookmarksView.swift */; };
+		42DD85E52EF4EE3E00F25DC3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85E42EF4EE3E00F25DC3 /* ProfileView.swift */; };
+		42DD85E62EF4EE3E00F25DC3 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85E32EF4EE3E00F25DC3 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		42DD85DD2EF4D74300F25DC3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		42DD85DF2EF4E58900F25DC3 /* CocktailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListView.swift; sourceTree = "<group>"; };
 		42DD85E12EF4ED8500F25DC3 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
+		42DD85E32EF4EE3E00F25DC3 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		42DD85E42EF4EE3E00F25DC3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		42DD85DC2EF4D71500F25DC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42DD85E32EF4EE3E00F25DC3 /* MainTabView.swift */,
+				42DD85E42EF4EE3E00F25DC3 /* ProfileView.swift */,
 				42DD85E12EF4ED8500F25DC3 /* BookmarksView.swift */,
 				42DD85DF2EF4E58900F25DC3 /* CocktailListView.swift */,
 				42DD85DD2EF4D74300F25DC3 /* LoginView.swift */,
@@ -205,6 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42DD85E52EF4EE3E00F25DC3 /* ProfileView.swift in Sources */,
+				42DD85E62EF4EE3E00F25DC3 /* MainTabView.swift in Sources */,
 				42DD859E2EF4CE4100F25DC3 /* CocktailAPIService.swift in Sources */,
 				42DD85A02EF4CE4100F25DC3 /* AuthManager.swift in Sources */,
 				42DD85E22EF4ED8500F25DC3 /* BookmarksView.swift in Sources */,
