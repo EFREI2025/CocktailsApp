@@ -21,6 +21,8 @@
 		42DD85B22EF4CE8C00F25DC3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85A92EF4CE8C00F25DC3 /* LoginViewModel.swift */; };
 		42DD85DA2EF4D54400F25DC3 /* CocktailsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85D82EF4D54400F25DC3 /* CocktailsApp.swift */; };
 		42DD85DE2EF4D74300F25DC3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85DD2EF4D74300F25DC3 /* LoginView.swift */; };
+		42DD85E02EF4E58900F25DC3 /* CocktailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85DF2EF4E58900F25DC3 /* CocktailListView.swift */; };
+		42DD85E22EF4ED8500F25DC3 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85E12EF4ED8500F25DC3 /* BookmarksView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		42DD85AB2EF4CE8C00F25DC3 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		42DD85D82EF4D54400F25DC3 /* CocktailsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsApp.swift; sourceTree = "<group>"; };
 		42DD85DD2EF4D74300F25DC3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		42DD85DF2EF4E58900F25DC3 /* CocktailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListView.swift; sourceTree = "<group>"; };
+		42DD85E12EF4ED8500F25DC3 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 		42DD85DC2EF4D71500F25DC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42DD85E12EF4ED8500F25DC3 /* BookmarksView.swift */,
+				42DD85DF2EF4E58900F25DC3 /* CocktailListView.swift */,
 				42DD85DD2EF4D74300F25DC3 /* LoginView.swift */,
 			);
 			path = Views;
@@ -201,10 +207,12 @@
 			files = (
 				42DD859E2EF4CE4100F25DC3 /* CocktailAPIService.swift in Sources */,
 				42DD85A02EF4CE4100F25DC3 /* AuthManager.swift in Sources */,
+				42DD85E22EF4ED8500F25DC3 /* BookmarksView.swift in Sources */,
 				03D7983D2EF2F2C000BB8D6C /* ContentView.swift in Sources */,
 				42DD85A42EF4CE7800F25DC3 /* Cocktail.swift in Sources */,
 				42DD85AC2EF4CE8C00F25DC3 /* CocktailListViewModel.swift in Sources */,
 				42DD85AD2EF4CE8C00F25DC3 /* UserProfileViewModel.swift in Sources */,
+				42DD85E02EF4E58900F25DC3 /* CocktailListView.swift in Sources */,
 				42DD85DE2EF4D74300F25DC3 /* LoginView.swift in Sources */,
 				42DD85AE2EF4CE8C00F25DC3 /* BookmarksViewModel.swift in Sources */,
 				42DD85B02EF4CE8C00F25DC3 /* CocktailDetailViewModel.swift in Sources */,
