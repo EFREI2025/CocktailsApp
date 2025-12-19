@@ -37,7 +37,7 @@ class CocktailAPIService {
     static let shared = CocktailAPIService()
     
     // Update this to your json-server URL
-    static let baseURL = "http://localhost:3000"
+    static let baseURL = "http://localhost:4000"
     
     private let session: URLSession
     
