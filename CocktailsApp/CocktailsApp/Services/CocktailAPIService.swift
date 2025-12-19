@@ -266,6 +266,11 @@ class CocktailAPIService {
         return try await post(endpoint: "/reviews", body: review)
     }
     
+    /// Update existing review
+    func updateReview(id: String, review: Review) async throws -> Review {
+        return try await patch(endpoint: "/reviews/\(id)", body: review)
+    }
+    
     /// Delete review
     func deleteReview(id: String) async throws {
         try await delete(endpoint: "/reviews/\(id)")

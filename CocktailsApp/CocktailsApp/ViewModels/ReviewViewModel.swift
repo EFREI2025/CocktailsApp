@@ -20,15 +20,23 @@ class ReviewViewModel: ObservableObject {
     private let apiService: CocktailAPIService
     private let authManager: AuthManager
     let cocktailId: String
+    private(set) var existingReview: Review?
     
-    init(cocktailId: String, apiService: CocktailAPIService, authManager: AuthManager) {
+    init(cocktailId: String, existingReview: Review? = nil, apiService: CocktailAPIService, authManager: AuthManager) {
         self.cocktailId = cocktailId
+        self.existingReview = existingReview
         self.apiService = apiService
         self.authManager = authManager
+        
+        // Pre-populate with existing review data
+        if let review = existingReview {
+            self.rating = review.rating
+            self.comment = review.comment
+        }
     }
     
-    convenience init(cocktailId: String) {
-        self.init(cocktailId: cocktailId, apiService: .shared, authManager: .shared)
+    convenience init(cocktailId: String, existingReview: Review? = nil) {
+        self.init(cocktailId: cocktailId, existingReview: existingReview, apiService: .shared, authManager: .shared)
     }
     
     // MARK: - Computed Properties
@@ -41,7 +49,7 @@ class ReviewViewModel: ObservableObject {
     
     // MARK: - Actions
     
-    /// Submit review
+    /// Submit review (creates new or updates existing)
     func submitReview() async -> Bool {
         guard let userId = authManager.currentUser?.id else {
             errorMessage = "You must be logged in to submit a review"
@@ -56,20 +64,34 @@ class ReviewViewModel: ObservableObject {
         isSubmitting = true
         errorMessage = nil
         
-        let timestamp = Date().timeIntervalSince1970 * 1000
-        let reviewId = "rev\(UUID().uuidString.prefix(4))"
-        
-        let review = Review(
-            id: reviewId,
-            drinkId: cocktailId,
-            authorId: userId,
-            rating: rating,
-            comment: comment.trimmingCharacters(in: .whitespacesAndNewlines),
-            createdAt: timestamp
-        )
-        
         do {
-            _ = try await apiService.createReview(review: review)
+            if let existing = existingReview {
+                // Update existing review
+                let updatedReview = Review(
+                    id: existing.id,
+                    drinkId: cocktailId,
+                    authorId: userId,
+                    rating: rating,
+                    comment: comment.trimmingCharacters(in: .whitespacesAndNewlines),
+                    createdAt: existing.createdAt
+                )
+                _ = try await apiService.updateReview(id: existing.id, review: updatedReview)
+            } else {
+                // Create new review
+                let timestamp = Date().timeIntervalSince1970 * 1000
+                let reviewId = "rev\(UUID().uuidString.prefix(4))"
+                
+                let review = Review(
+                    id: reviewId,
+                    drinkId: cocktailId,
+                    authorId: userId,
+                    rating: rating,
+                    comment: comment.trimmingCharacters(in: .whitespacesAndNewlines),
+                    createdAt: timestamp
+                )
+                _ = try await apiService.createReview(review: review)
+            }
+            
             showSuccess = true
             resetForm()
             isSubmitting = false
