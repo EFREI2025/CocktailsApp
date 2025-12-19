@@ -2,25 +2,23 @@
   "users": [
     {
       "id": "d063",
-      "email": "toto@email.com",
+      "email": "toto@test.com",
       "password": "Password1",
       "createdAt": 1760835884667,
-      "updatedAt": 1763342785798,
-      "bookmarks": [
-        "50",
-        "1"
-      ]
+      "updatedAt": 1766143631468.937,
+      "name": "Toto",
+      "bookmarks": []
     },
     {
       "id": "d243",
-      "email": "alex@email.com",
+      "email": "alex@test.com",
       "password": "Password1",
       "createdAt": 1760836959848,
       "updatedAt": 1760836959848
     },
     {
       "id": "9d8d",
-      "email": "john@email.com",
+      "email": "john@test.com",
       "password": "Password123",
       "createdAt": 1763313212859,
       "updatedAt": 1763313212859
@@ -34,24 +32,10 @@
       "name": "toto",
       "dateOfBirth": "2025-11-13",
       "phone": "00 11 22 33 44",
-      "gender": "male",
-      "bookmarks": []
+      "gender": "male"
     }
   ],
-  "bookmarks": [
-    {
-      "id": "bm1",
-      "userId": "d063",
-      "drinkId": "dg5e",
-      "createdAt": 1734600000000
-    },
-    {
-      "id": "bm2",
-      "userId": "d063",
-      "drinkId": "dg5e",
-      "createdAt": 1734610000000
-    }
-  ],
+  "bookmarks": [],
   "reviews": [
     {
       "id": "fz3g",
@@ -68,6 +52,22 @@
       "rating": 4,
       "comment": "The Bijou is a fantastic cocktail with a rich history. I enjoyed the herbal notes from the green Chartreuse, and the sweetness from the vermouth complemented it well. The orange bitters really elevated the drink. A must-try for cocktail enthusiasts!",
       "createdAt": 1734586400000
+    },
+    {
+      "id": "revDE76",
+      "rating": 1,
+      "drinkId": "dg5e",
+      "authorId": "d063",
+      "createdAt": 1766144488373.325,
+      "comment": "Cool"
+    },
+    {
+      "id": "rev2DF1",
+      "comment": "Cool too",
+      "drinkId": "are4",
+      "authorId": "d063",
+      "rating": 4,
+      "createdAt": 1766144690665.809
     }
   ],
   "drinks": [
@@ -80,14 +80,19 @@
       "glass": "Cocktail glass",
       "instructions": "Stir in mixing glass with ice and strain\r\n",
       "ingredients": [
-      "1 dash Orange Bitters",
-      "1 oz Green Chartreuse",
-      "1 oz Gin",
-      "1 oz Sweet Vermouth"
+        "1 dash Orange Bitters",
+        "1 oz Green Chartreuse",
+        "1 oz Gin",
+        "1 oz Sweet Vermouth"
       ],
       "imageSource": "https://www.thecocktaildb.com/images/media/drink/rysb3r1513706985.jpg",
       "imageAlt": "A vibrant Bijou cocktail served in a classic cocktail glass, garnished with a lemon twist.",
-      "tags": ["classic", "sophisticated", "herbal", "vintage"],
+      "tags": [
+        "classic",
+        "sophisticated",
+        "herbal",
+        "vintage"
+      ],
       "difficulty": "medium",
       "prepTime": "5 minutes",
       "servings": 1,
@@ -104,17 +109,23 @@
       "glass": "Hurricane glass",
       "instructions": "Blend at high speed for no more than 5 seconds.\n\nPour into a glass, add ice cubes to fill, then add the garnish.\n\n*Donn’s mix: Bring 3 crushed cinnamon sticks, 1 cup of sugar and 1 cup of water to a boil, stirring until the sugar is dissolved.\n\nSimmer for 2 minutes, then remove from the heat and let sit for at least 2 hours before straining into a clean glass bottle.\n\nThen add 1 part of the syrup and 2 parts of fresh grapefruit juice together.",
       "ingredients": [
-      "1 1/2 oz Rum",
-      "1 1/2 oz Gold rum",
-      "1 oz 151 proof rum",
-      "1 tsp Pernod",
-      "1 tsp Grenadine",
-      "1 tsp Lime Juice",
-      "1 drop Angostura Bitters"
+        "1 1/2 oz Rum",
+        "1 1/2 oz Gold rum",
+        "1 oz 151 proof rum",
+        "1 tsp Pernod",
+        "1 tsp Grenadine",
+        "1 tsp Lime Juice",
+        "1 drop Angostura Bitters"
       ],
       "imageSource": "https://www.thecocktaildb.com/images/media/drink/2en3jk1509557725.jpg",
       "imageAlt": "A colorful Zombie cocktail served in a hurricane glass, garnished with tropical fruit and a cherry.",
-      "tags": ["tiki", "tropical", "fruity", "party", "strong"],
+      "tags": [
+        "tiki",
+        "tropical",
+        "fruity",
+        "party",
+        "strong"
+      ],
       "difficulty": "hard",
       "prepTime": "10 minutes",
       "servings": 1,
