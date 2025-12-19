@@ -142,7 +142,7 @@ struct CocktailListView: View {
                                 GridItem(.flexible(), spacing: 16)
                             ], spacing: 16) {
                                 ForEach(viewModel.filteredCocktails) { cocktail in
-                                    NavigationLink(destination: Text("Detail: \(cocktail.title)")) {
+                                    NavigationLink(destination: CocktailDetailView(cocktail: cocktail)) {
                                         CocktailCard(cocktail: cocktail)
                                     }
                                     .buttonStyle(PlainButtonStyle())

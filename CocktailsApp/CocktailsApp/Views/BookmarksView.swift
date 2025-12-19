@@ -96,7 +96,7 @@ struct BookmarksView: View {
                     ScrollView {
                         VStack(spacing: 12) {
                             ForEach(viewModel.bookmarkedCocktails) { cocktail in
-                                NavigationLink(destination: Text("Detail: \(cocktail.title)")) {
+                                NavigationLink(destination: CocktailDetailView(cocktail: cocktail)) {
                                     BookmarkCard(cocktail: cocktail) {
                                         Task {
                                             await viewModel.removeBookmark(cocktail)
