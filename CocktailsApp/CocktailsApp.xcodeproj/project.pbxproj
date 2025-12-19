@@ -12,6 +12,8 @@
 		03D798422EF2F2C200BB8D6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D798412EF2F2C200BB8D6C /* Preview Assets.xcassets */; };
 		4273468D2EF5526A00CE69DD /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4273468C2EF5526A00CE69DD /* ChangePasswordView.swift */; };
 		4273468F2EF5527600CE69DD /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4273468E2EF5527600CE69DD /* ChangePasswordViewModel.swift */; };
+		427346912EF55ACE00CE69DD /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427346902EF55ACE00CE69DD /* BookmarksView.swift */; };
+		427346932EF55ADC00CE69DD /* CocktailDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427346922EF55ADC00CE69DD /* CocktailDetailView.swift */; };
 		42DD859E2EF4CE4100F25DC3 /* CocktailAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD859C2EF4CE4100F25DC3 /* CocktailAPIService.swift */; };
 		42DD85A02EF4CE4100F25DC3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD859B2EF4CE4100F25DC3 /* AuthManager.swift */; };
 		42DD85A42EF4CE7800F25DC3 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85A22EF4CE7800F25DC3 /* Cocktail.swift */; };
@@ -36,6 +38,8 @@
 		03D798412EF2F2C200BB8D6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4273468C2EF5526A00CE69DD /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		4273468E2EF5527600CE69DD /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		427346902EF55ACE00CE69DD /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
+		427346922EF55ADC00CE69DD /* CocktailDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailView.swift; sourceTree = "<group>"; };
 		42DD859B2EF4CE4100F25DC3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		42DD859C2EF4CE4100F25DC3 /* CocktailAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailAPIService.swift; sourceTree = "<group>"; };
 		42DD85A22EF4CE7800F25DC3 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		42DD85DC2EF4D71500F25DC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				427346922EF55ADC00CE69DD /* CocktailDetailView.swift */,
+				427346902EF55ACE00CE69DD /* BookmarksView.swift */,
 				4273468C2EF5526A00CE69DD /* ChangePasswordView.swift */,
 				42DD85E32EF4EE3E00F25DC3 /* MainTabView.swift */,
 				42DD85E42EF4EE3E00F25DC3 /* ProfileView.swift */,
@@ -220,6 +226,7 @@
 				42DD85E52EF4EE3E00F25DC3 /* ProfileView.swift in Sources */,
 				42DD85E62EF4EE3E00F25DC3 /* MainTabView.swift in Sources */,
 				42DD859E2EF4CE4100F25DC3 /* CocktailAPIService.swift in Sources */,
+				427346932EF55ADC00CE69DD /* CocktailDetailView.swift in Sources */,
 				4273468D2EF5526A00CE69DD /* ChangePasswordView.swift in Sources */,
 				42DD85A02EF4CE4100F25DC3 /* AuthManager.swift in Sources */,
 				42DD85E22EF4ED8500F25DC3 /* BookmarksView.swift in Sources */,
@@ -234,6 +241,7 @@
 				42DD85B02EF4CE8C00F25DC3 /* CocktailDetailViewModel.swift in Sources */,
 				42DD85B12EF4CE8C00F25DC3 /* ReviewViewModel.swift in Sources */,
 				42DD85B22EF4CE8C00F25DC3 /* LoginViewModel.swift in Sources */,
+				427346912EF55ACE00CE69DD /* BookmarksView.swift in Sources */,
 				42DD85DA2EF4D54400F25DC3 /* CocktailsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
