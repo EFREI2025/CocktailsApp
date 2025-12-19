@@ -16,7 +16,7 @@ struct BookmarksView: View {
         NavigationView {
             ZStack {
                 // Background
-                Color(UIColor.systemGroupedBackground)
+                Color(UIColor.systemBackground)
                     .ignoresSafeArea()
                 
                 if !authManager.isAuthenticated {

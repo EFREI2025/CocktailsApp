@@ -17,3 +17,4 @@ struct ContentView: View {
     ContentView()
         .environmentObject(AuthManager.shared)
 }
+

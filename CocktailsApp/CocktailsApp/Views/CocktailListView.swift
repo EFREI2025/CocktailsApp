@@ -16,7 +16,7 @@ struct CocktailListView: View {
         NavigationView {
             ZStack {
                 // Background
-                Color(UIColor.systemGroupedBackground)
+                Color(UIColor.systemBackground)
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {

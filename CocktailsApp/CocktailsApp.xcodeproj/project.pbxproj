@@ -10,6 +10,8 @@
 		03D7983D2EF2F2C000BB8D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7983C2EF2F2C000BB8D6C /* ContentView.swift */; };
 		03D7983F2EF2F2C200BB8D6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D7983E2EF2F2C200BB8D6C /* Assets.xcassets */; };
 		03D798422EF2F2C200BB8D6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D798412EF2F2C200BB8D6C /* Preview Assets.xcassets */; };
+		4273468D2EF5526A00CE69DD /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4273468C2EF5526A00CE69DD /* ChangePasswordView.swift */; };
+		4273468F2EF5527600CE69DD /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4273468E2EF5527600CE69DD /* ChangePasswordViewModel.swift */; };
 		42DD859E2EF4CE4100F25DC3 /* CocktailAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD859C2EF4CE4100F25DC3 /* CocktailAPIService.swift */; };
 		42DD85A02EF4CE4100F25DC3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD859B2EF4CE4100F25DC3 /* AuthManager.swift */; };
 		42DD85A42EF4CE7800F25DC3 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD85A22EF4CE7800F25DC3 /* Cocktail.swift */; };
@@ -32,6 +34,8 @@
 		03D7983C2EF2F2C000BB8D6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		03D7983E2EF2F2C200BB8D6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03D798412EF2F2C200BB8D6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4273468C2EF5526A00CE69DD /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		4273468E2EF5527600CE69DD /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		42DD859B2EF4CE4100F25DC3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		42DD859C2EF4CE4100F25DC3 /* CocktailAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailAPIService.swift; sourceTree = "<group>"; };
 		42DD85A22EF4CE7800F25DC3 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		42DD85772EF4517800F25DC3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4273468E2EF5527600CE69DD /* ChangePasswordViewModel.swift */,
 				42DD85A62EF4CE8C00F25DC3 /* BookmarksViewModel.swift */,
 				42DD85A72EF4CE8C00F25DC3 /* CocktailDetailViewModel.swift */,
 				42DD85A82EF4CE8C00F25DC3 /* CocktailListViewModel.swift */,
@@ -132,6 +137,7 @@
 		42DD85DC2EF4D71500F25DC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4273468C2EF5526A00CE69DD /* ChangePasswordView.swift */,
 				42DD85E32EF4EE3E00F25DC3 /* MainTabView.swift */,
 				42DD85E42EF4EE3E00F25DC3 /* ProfileView.swift */,
 				42DD85E12EF4ED8500F25DC3 /* BookmarksView.swift */,
@@ -214,6 +220,7 @@
 				42DD85E52EF4EE3E00F25DC3 /* ProfileView.swift in Sources */,
 				42DD85E62EF4EE3E00F25DC3 /* MainTabView.swift in Sources */,
 				42DD859E2EF4CE4100F25DC3 /* CocktailAPIService.swift in Sources */,
+				4273468D2EF5526A00CE69DD /* ChangePasswordView.swift in Sources */,
 				42DD85A02EF4CE4100F25DC3 /* AuthManager.swift in Sources */,
 				42DD85E22EF4ED8500F25DC3 /* BookmarksView.swift in Sources */,
 				03D7983D2EF2F2C000BB8D6C /* ContentView.swift in Sources */,
@@ -223,6 +230,7 @@
 				42DD85E02EF4E58900F25DC3 /* CocktailListView.swift in Sources */,
 				42DD85DE2EF4D74300F25DC3 /* LoginView.swift in Sources */,
 				42DD85AE2EF4CE8C00F25DC3 /* BookmarksViewModel.swift in Sources */,
+				4273468F2EF5527600CE69DD /* ChangePasswordViewModel.swift in Sources */,
 				42DD85B02EF4CE8C00F25DC3 /* CocktailDetailViewModel.swift in Sources */,
 				42DD85B12EF4CE8C00F25DC3 /* ReviewViewModel.swift in Sources */,
 				42DD85B22EF4CE8C00F25DC3 /* LoginViewModel.swift in Sources */,
