@@ -5,10 +5,12 @@
       "email": "toto@test.com",
       "password": "Password1",
       "createdAt": 1760835884667,
-      "updatedAt": 1766156405837.858,
+      "updatedAt": 1766157430962.0361,
       "name": "Toto",
       "bookmarks": [
-        "17222"
+        "13501",
+        "17225",
+        "17833"
       ]
     },
     {
@@ -39,10 +41,22 @@
   ],
   "bookmarks": [
     {
-      "id": "bmCDD6",
-      "createdAt": 1766156405837.858,
-      "userId": "d063",
-      "drinkId": "17222"
+      "id": "bm6B77",
+      "drinkId": "13501",
+      "createdAt": 1766156921322.011,
+      "userId": "d063"
+    },
+    {
+      "id": "bmF745",
+      "drinkId": "17225",
+      "createdAt": 1766156923304.842,
+      "userId": "d063"
+    },
+    {
+      "id": "bm6888",
+      "createdAt": 1766157430962.0361,
+      "drinkId": "17833",
+      "userId": "d063"
     }
   ],
   "reviews": [
@@ -85,6 +99,14 @@
       "drinkId": "17222",
       "createdAt": 1766156381806.9602,
       "comment": "Good drink"
+    },
+    {
+      "id": "revE18F",
+      "drinkId": "17225",
+      "comment": "Vert fois drink!",
+      "createdAt": 1766156982042.958,
+      "rating": 5,
+      "authorId": "d063"
     }
   ],
   "drinks": [
