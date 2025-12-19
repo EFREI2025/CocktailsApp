@@ -361,85 +361,91 @@ struct FilterView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                // Category Section
-                Section("Category") {
-                    ForEach(viewModel.availableCategories, id: \.self) { category in
-                        Button(action: {
-                            viewModel.selectedCategory = viewModel.selectedCategory == category ? nil : category
-                        }) {
-                            HStack {
-                                Text(category)
-                                    .foregroundColor(.primary)
-                                Spacer()
-                                if viewModel.selectedCategory == category {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(.accentColor)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    // Category Section
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Category")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        
+                        FlowLayout(spacing: 8) {
+                            ForEach(viewModel.availableCategories, id: \.self) { category in
+                                SelectableChip(
+                                    title: category,
+                                    isSelected: viewModel.selectedCategory == category
+                                ) {
+                                    viewModel.selectedCategory = viewModel.selectedCategory == category ? nil : category
                                 }
                             }
                         }
                     }
-                }
-                
-                // Difficulty Section
-                Section("Difficulty") {
-                    ForEach([DifficultyLevel.easy, .medium, .hard], id: \.self) { difficulty in
-                        Button(action: {
-                            viewModel.selectedDifficulty = viewModel.selectedDifficulty == difficulty ? nil : difficulty
-                        }) {
-                            HStack {
-                                Text(difficulty.rawValue.capitalized)
-                                    .foregroundColor(.primary)
-                                Spacer()
-                                if viewModel.selectedDifficulty == difficulty {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(.accentColor)
+                    
+                    Divider()
+                    
+                    // Difficulty Section
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Difficulty")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        
+                        FlowLayout(spacing: 8) {
+                            ForEach([DifficultyLevel.easy, .medium, .hard], id: \.self) { difficulty in
+                                SelectableChip(
+                                    title: difficulty.rawValue.capitalized,
+                                    isSelected: viewModel.selectedDifficulty == difficulty
+                                ) {
+                                    viewModel.selectedDifficulty = viewModel.selectedDifficulty == difficulty ? nil : difficulty
                                 }
                             }
                         }
                     }
-                }
-                
-                // Alcohol Level Section
-                Section("Alcohol Content") {
-                    ForEach([AlcoholLevel.none, .low, .medium, .high, .veryHigh], id: \.self) { level in
-                        Button(action: {
-                            viewModel.selectedAlcoholLevel = viewModel.selectedAlcoholLevel == level ? nil : level
-                        }) {
-                            HStack {
-                                Text(level.rawValue.capitalized)
-                                    .foregroundColor(.primary)
-                                Spacer()
-                                if viewModel.selectedAlcoholLevel == level {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(.accentColor)
+                    
+                    Divider()
+                    
+                    // Alcohol Level Section
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Alcohol Content")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        
+                        FlowLayout(spacing: 8) {
+                            ForEach([AlcoholLevel.none, .low, .medium, .high, .veryHigh], id: \.self) { level in
+                                SelectableChip(
+                                    title: level.rawValue.capitalized,
+                                    isSelected: viewModel.selectedAlcoholLevel == level
+                                ) {
+                                    viewModel.selectedAlcoholLevel = viewModel.selectedAlcoholLevel == level ? nil : level
                                 }
                             }
                         }
                     }
-                }
-                
-                // Tags Section
-                if !viewModel.availableTags.isEmpty {
-                    Section("Tags") {
-                        ForEach(viewModel.availableTags, id: \.self) { tag in
-                            Button(action: {
-                                viewModel.toggleTag(tag)
-                            }) {
-                                HStack {
-                                    Text(tag)
-                                        .foregroundColor(.primary)
-                                    Spacer()
-                                    if viewModel.selectedTags.contains(tag) {
-                                        Image(systemName: "checkmark")
-                                            .foregroundColor(.accentColor)
+                    
+                    // Tags Section
+                    if !viewModel.availableTags.isEmpty {
+                        Divider()
+                        
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Tags")
+                                .font(.headline)
+                                .foregroundColor(.secondary)
+                            
+                            FlowLayout(spacing: 8) {
+                                ForEach(viewModel.availableTags, id: \.self) { tag in
+                                    SelectableChip(
+                                        title: tag,
+                                        isSelected: viewModel.selectedTags.contains(tag)
+                                    ) {
+                                        viewModel.toggleTag(tag)
                                     }
                                 }
                             }
                         }
                     }
                 }
+                .padding()
             }
+            .background(Color(UIColor.systemBackground))
             .navigationTitle("Filters")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -456,6 +462,82 @@ struct FilterView: View {
                     .fontWeight(.semibold)
                 }
             }
+        }
+    }
+}
+
+// MARK: - Selectable Chip
+struct SelectableChip: View {
+    let title: String
+    let isSelected: Bool
+    let onTap: () -> Void
+    
+    var body: some View {
+        Button(action: onTap) {
+            Text(title)
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .foregroundColor(isSelected ? .white : .primary)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(isSelected ? Color.accentColor : Color(.secondarySystemBackground))
+                .cornerRadius(20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(isSelected ? Color.clear : Color(.separator), lineWidth: 1)
+                )
+        }
+    }
+}
+
+// MARK: - Flow Layout
+struct FlowLayout: Layout {
+    var spacing: CGFloat = 8
+    
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let result = FlowResult(
+            in: proposal.replacingUnspecifiedDimensions().width,
+            subviews: subviews,
+            spacing: spacing
+        )
+        return result.size
+    }
+    
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let result = FlowResult(
+            in: bounds.width,
+            subviews: subviews,
+            spacing: spacing
+        )
+        for (index, subview) in subviews.enumerated() {
+            subview.place(at: CGPoint(x: bounds.minX + result.frames[index].minX, y: bounds.minY + result.frames[index].minY), proposal: .unspecified)
+        }
+    }
+    
+    struct FlowResult {
+        var size: CGSize = .zero
+        var frames: [CGRect] = []
+        
+        init(in maxWidth: CGFloat, subviews: Subviews, spacing: CGFloat) {
+            var currentX: CGFloat = 0
+            var currentY: CGFloat = 0
+            var lineHeight: CGFloat = 0
+            
+            for subview in subviews {
+                let size = subview.sizeThatFits(.unspecified)
+                
+                if currentX + size.width > maxWidth && currentX > 0 {
+                    currentX = 0
+                    currentY += lineHeight + spacing
+                    lineHeight = 0
+                }
+                
+                frames.append(CGRect(origin: CGPoint(x: currentX, y: currentY), size: size))
+                lineHeight = max(lineHeight, size.height)
+                currentX += size.width + spacing
+            }
+            
+            self.size = CGSize(width: maxWidth, height: currentY + lineHeight)
         }
     }
 }

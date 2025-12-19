@@ -84,7 +84,8 @@ class CocktailListViewModel: ObservableObject {
             }
         }
         
-        return results
+        // Sort by title alphabetically
+        return results.sorted { $0.title.lowercased() < $1.title.lowercased() }
     }
     
     // MARK: - Actions
@@ -95,7 +96,8 @@ class CocktailListViewModel: ObservableObject {
         errorMessage = nil
         
         do {
-            cocktails = try await apiService.fetchCocktails()
+            let fetchedCocktails = try await apiService.fetchCocktails()
+            cocktails = fetchedCocktails.sorted { $0.title.lowercased() < $1.title.lowercased() }
         } catch {
             errorMessage = error.localizedDescription
         }
